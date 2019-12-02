@@ -1,0 +1,6 @@
+framework module Pods_Swift4LINELogin {
+  umbrella header "Pods-Swift4LINELogin-umbrella.h"
+
+  export *
+  module * { export * }
+}
