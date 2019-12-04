@@ -38,5 +38,22 @@ class EditViewController: UIViewController {
         
     }
     
-
+    @IBAction func edit(_ sender: Any) {
+        // Realmデータベースを取得
+        let realmInstance = try! Realm()
+        
+        // 更新対象のItemをしPKから取得
+        let item: TodoModel = realmInstance.object(ofType: TodoModel.self, forPrimaryKey: itemId)!
+        
+        // TextFieldの情報をデータベースに更新
+        try! realmInstance.write {
+            item.itemName = titleField.text
+            item.itemDetail = detailField.text
+            item.dueDate = dateField.date
+        }
+        
+        // 元の画面に戻る
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }

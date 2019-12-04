@@ -239,6 +239,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="edit:" destination="6Th-TV-Idg" eventType="touchUpInside" id="P0y-y8-Jeb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
