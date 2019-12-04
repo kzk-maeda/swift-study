@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var tableView: UITableView!
@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         
         // Realmインスタンスの取得
         let realmInstance = try! Realm()
@@ -30,6 +31,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+    }
+    
+    // Cellが選択された時に詳細画面に飛ぶ
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if ( segue.identifier == "showDetail" ) {
+            let x = self.tableView.indexPathForSelectedRow
+            let y = x?.row
+            let item = self.itemList[y!]
+            let p : EditViewController = segue.destination as! EditViewController
+            p.itemId = item.id
+        }
     }
     
     // Table Definition
@@ -66,6 +78,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             // テーブルリストを再読み込み
             self.tableView.reloadData()
         }
+    }
+    
+    // Cellが選択された時に詳細画面に飛ぶ
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "showDetail", sender: itemList[indexPath.row])
     }
 
     
