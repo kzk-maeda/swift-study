@@ -47,6 +47,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Realmデータベースを取得
+            let realmInstance = try! Realm()
+            
+            // 対象Itemの削除
+            try! realmInstance.write {
+                realmInstance.delete(self.itemList[(indexPath as NSIndexPath).row])
+            }
+            
+            // テーブルリストを再読み込み
+            self.tableView.reloadData()
+        }
+    }
 
     
     // Button Action
