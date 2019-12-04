@@ -11,15 +11,13 @@ import RealmSwift
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
     
-    @IBOutlet var textField: UITextField!
-    @IBOutlet var dateField: UIDatePicker!
+    @IBOutlet var searchTextField: UITextField!
     @IBOutlet var tableView: UITableView!
     
     var itemList: Results<TodoModel>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.delegate = self
         tableView.dataSource = self
         
         // Realmインスタンスの取得
@@ -71,28 +69,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     }
 
     
-    // Button Action
-    @IBAction func addItem(_ sender: Any) {
+    @IBAction func searchItem(_ sender: Any) {
+        // Realmインスタンスの取得
+        let realmInstance = try! Realm()
         
-        // Model Classをインスタンス化
-        let todoInstance: TodoModel = TodoModel()
-        todoInstance.id = NSUUID().uuidString
-        todoInstance.itemName = self.textField.text
-        todoInstance.itemDetail = nil // 一旦nilで作る
-        todoInstance.dueDate = self.dateField.date
-        todoInstance.createdDate = NSDate() as Date
-        
-        // Realmデータベースを取得
-        let realmInstance2 = try! Realm()
-        
-        // TextFieldの情報をデータベースに追加
-        try! realmInstance2.write {
-            realmInstance2.add(todoInstance)
+        let searchWord = self.searchTextField.text
+        // searchWordがからの時は全件取得
+        if searchWord == "" {
+            self.itemList = realmInstance.objects(TodoModel.self)
+        } else {
+            // Realmデータベースに格納されているデータからFilterしたリストを取得
+            self.itemList = realmInstance.objects(TodoModel.self).filter("itemName CONTAINS %@", searchWord!)
         }
         
         // テーブルリストを再読み込み
         self.tableView.reloadData()
     }
     
-
 }
