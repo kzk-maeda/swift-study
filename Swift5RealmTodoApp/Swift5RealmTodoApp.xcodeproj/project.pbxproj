@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57ECAA212398313700480F49 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECAA202398313700480F49 /* AddViewController.swift */; };
 		57F8607E2397EFFE00A26EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8607D2397EFFE00A26EB0 /* AppDelegate.swift */; };
 		57F860802397EFFE00A26EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8607F2397EFFE00A26EB0 /* SceneDelegate.swift */; };
 		57F860822397EFFE00A26EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F860812397EFFE00A26EB0 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3EBF0723B323ABA01DBB9077 /* Pods-Swift5RealmTodoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift5RealmTodoApp.release.xcconfig"; path = "Target Support Files/Pods-Swift5RealmTodoApp/Pods-Swift5RealmTodoApp.release.xcconfig"; sourceTree = "<group>"; };
+		57ECAA202398313700480F49 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		57F8607A2397EFFE00A26EB0 /* Swift5RealmTodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift5RealmTodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F8607D2397EFFE00A26EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F8607F2397EFFE00A26EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				57F8607D2397EFFE00A26EB0 /* AppDelegate.swift */,
 				57F8607F2397EFFE00A26EB0 /* SceneDelegate.swift */,
 				57F860812397EFFE00A26EB0 /* ViewController.swift */,
+				57ECAA202398313700480F49 /* AddViewController.swift */,
 				57F860832397EFFE00A26EB0 /* Main.storyboard */,
 				57F860932398102700A26EB0 /* DateUtil.swift */,
 				57F860912397F2A900A26EB0 /* TodoModel.swift */,
@@ -214,6 +217,7 @@
 			files = (
 				57F860822397EFFE00A26EB0 /* ViewController.swift in Sources */,
 				57F860942398102700A26EB0 /* DateUtil.swift in Sources */,
+				57ECAA212398313700480F49 /* AddViewController.swift in Sources */,
 				57F860922397F2A900A26EB0 /* TodoModel.swift in Sources */,
 				57F8607E2397EFFE00A26EB0 /* AppDelegate.swift in Sources */,
 				57F860802397EFFE00A26EB0 /* SceneDelegate.swift in Sources */,

@@ -29,6 +29,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         self.itemList = realmInstance.objects(TodoModel.self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     // Table Definition
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -71,8 +76,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         
         // Model Classをインスタンス化
         let todoInstance: TodoModel = TodoModel()
+        todoInstance.id = NSUUID().uuidString
         todoInstance.itemName = self.textField.text
+        todoInstance.itemDetail = nil // 一旦nilで作る
         todoInstance.dueDate = self.dateField.date
+        todoInstance.createdDate = NSDate() as Date
         
         // Realmデータベースを取得
         let realmInstance2 = try! Realm()
