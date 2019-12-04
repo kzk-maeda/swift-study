@@ -12,6 +12,7 @@ import RealmSwift
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
     
     @IBOutlet var textField: UITextField!
+    @IBOutlet var dateField: UIDatePicker!
     @IBOutlet var tableView: UITableView!
     
     var itemList: Results<TodoModel>!
@@ -44,6 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         
         // Cellに反映
         cell.textLabel?.text = item.itemName
+        cell.detailTextLabel?.text = DateUtils.stringFromDate(date: item.dueDate!, format: "yyyy/MM/dd")
         
         return cell
     }
@@ -70,6 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         // Model Classをインスタンス化
         let todoInstance: TodoModel = TodoModel()
         todoInstance.itemName = self.textField.text
+        todoInstance.dueDate = self.dateField.date
         
         // Realmデータベースを取得
         let realmInstance2 = try! Realm()

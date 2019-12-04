@@ -14,6 +14,7 @@
 		57F860872397EFFF00A26EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F860862397EFFF00A26EB0 /* Assets.xcassets */; };
 		57F8608A2397EFFF00A26EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F860882397EFFF00A26EB0 /* LaunchScreen.storyboard */; };
 		57F860922397F2A900A26EB0 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F860912397F2A900A26EB0 /* TodoModel.swift */; };
+		57F860942398102700A26EB0 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F860932398102700A26EB0 /* DateUtil.swift */; };
 		7E49A831867CDA0B6B1E8A62 /* Pods_Swift5RealmTodoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10D0CECC989E81975CA3C26 /* Pods_Swift5RealmTodoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		57F860892397EFFF00A26EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57F8608B2397EFFF00A26EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57F860912397F2A900A26EB0 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		57F860932398102700A26EB0 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		A10D0CECC989E81975CA3C26 /* Pods_Swift5RealmTodoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift5RealmTodoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD1DDD8399DB3956E4B3819 /* Pods-Swift5RealmTodoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift5RealmTodoApp.debug.xcconfig"; path = "Target Support Files/Pods-Swift5RealmTodoApp/Pods-Swift5RealmTodoApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,10 +80,11 @@
 				57F8607F2397EFFE00A26EB0 /* SceneDelegate.swift */,
 				57F860812397EFFE00A26EB0 /* ViewController.swift */,
 				57F860832397EFFE00A26EB0 /* Main.storyboard */,
+				57F860932398102700A26EB0 /* DateUtil.swift */,
+				57F860912397F2A900A26EB0 /* TodoModel.swift */,
 				57F860862397EFFF00A26EB0 /* Assets.xcassets */,
 				57F860882397EFFF00A26EB0 /* LaunchScreen.storyboard */,
 				57F8608B2397EFFF00A26EB0 /* Info.plist */,
-				57F860912397F2A900A26EB0 /* TodoModel.swift */,
 			);
 			path = Swift5RealmTodoApp;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57F860822397EFFE00A26EB0 /* ViewController.swift in Sources */,
+				57F860942398102700A26EB0 /* DateUtil.swift in Sources */,
 				57F860922397F2A900A26EB0 /* TodoModel.swift in Sources */,
 				57F8607E2397EFFE00A26EB0 /* AppDelegate.swift in Sources */,
 				57F860802397EFFE00A26EB0 /* SceneDelegate.swift in Sources */,

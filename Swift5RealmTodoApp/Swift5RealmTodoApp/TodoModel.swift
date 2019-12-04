@@ -12,4 +12,5 @@ import RealmSwift
 
 class TodoModel: Object {
     @objc dynamic var itemName: String? = nil
+    @objc dynamic var dueDate: Date? = nil
 }
