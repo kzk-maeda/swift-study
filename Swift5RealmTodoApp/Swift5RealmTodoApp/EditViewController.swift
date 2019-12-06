@@ -25,6 +25,7 @@ class EditViewController: UIViewController {
         
         // Realmインスタンスの取得
         let realmInstance = try! Realm()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         // Itemの取得
         print(itemId!)
