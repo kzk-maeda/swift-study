@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.isEditing = true
+        tableView.allowsSelectionDuringEditing = true
         
         // Realmインスタンスの取得
         let realmInstance = try! Realm()
@@ -50,7 +52,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.itemList.count
+        if itemList == nil {
+            return 0
+        } else {
+            return self.itemList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,6 +90,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "showDetail", sender: itemList[indexPath.row])
+    }
+    
+    // CellのSortができるようにする
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // TODO: do anything
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 
     
