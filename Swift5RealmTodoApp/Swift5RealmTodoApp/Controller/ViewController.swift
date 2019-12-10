@@ -68,6 +68,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         cell.textLabel?.text = item.itemName
         cell.detailTextLabel?.text = DateUtils.stringFromDate(date: item.dueDate!, format: "yyyy/MM/dd")
         
+        print(item.itemName)
+        
         return cell
     }
     
