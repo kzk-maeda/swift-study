@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SafariServices
 @testable import Swift5QiitaClient
 
 class ArticleListViewControllerTests: XCTestCase {
@@ -25,7 +26,7 @@ class ArticleListViewControllerTests: XCTestCase {
     }
 
     func test_Title1IsDisplayed() {
-        let article = Article(title: "Title")
+        let article = Article(title: "Title", url: "http://test")
         let client = FakeArticleListAPIClient(fakeResponse: [article])
         vc = ArticleListViewController(client: client)
         
@@ -34,7 +35,7 @@ class ArticleListViewControllerTests: XCTestCase {
     }
     
     func test_title2IsDisplayed() {
-        let article = Article(title: "Title2")
+        let article = Article(title: "Title2", url: "http://test")
         let client = FakeArticleListAPIClient(fakeResponse: [article])
         vc = ArticleListViewController(client: client)
         
@@ -54,12 +55,23 @@ class ArticleListViewControllerTests: XCTestCase {
     
     func test_TableViewRowNumIsGivenNum() {
         var testItems = [Article]()
-        testItems.append(Article(title: "Title1"))
-        testItems.append(Article(title: "Title2"))
+        testItems.append(Article(title: "Title1", url: "http://test"))
+        testItems.append(Article(title: "Title2", url: "http://test"))
         vc.items = testItems
         
         let rowCount = vc.tableView(vc.tableView, numberOfRowsInSection: 1)
         XCTAssertEqual(rowCount, testItems.count)
+    }
+    
+    func test_TapAndDisplayDetailView() {
+        let article = Article(title: "Title", url: "http;//test")
+        let client = FakeArticleListAPIClient(fakeResponse: [article])
+        let vc = ArticleListViewController(client: client)
+        
+        setUp()
+        
+        vc.tableView(vc.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertTrue(vc.presentedViewController is SFSafariViewController)
     }
 
 }

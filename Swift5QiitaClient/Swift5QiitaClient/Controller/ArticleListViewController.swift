@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ArticleListViewController: UIViewController {
     
@@ -93,6 +94,13 @@ extension ArticleListViewController: UITableViewDataSource, UITableViewDelegate 
         print(article.title)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let url = URL(string: items[indexPath.row].url) else { return }
+        
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
     
     
