@@ -60,19 +60,6 @@ class ArticleListViewControllerTests: XCTestCase {
         
         let rowCount = vc.tableView(vc.tableView, numberOfRowsInSection: 1)
         XCTAssertEqual(rowCount, testItems.count)
-        
-    }
-    
-    func test_TextLabelIsDisplayedInCell() {
-        var testItems = [Article]()
-        let indeXPath = IndexPath(row: 0, section: 1)
-        testItems.append(Article(title: "Title1"))
-        vc.items = testItems
-        
-        let cell: ArticleListCell = vc.tableView.dequeueReusableCell(withIdentifier: "ArticleListCell", for: indeXPath) as! ArticleListCell
-        print(cell.titleLabel.text!)
-        XCTAssertEqual(cell.titleLabel.text!, "Title1")
-        
     }
 
 }
