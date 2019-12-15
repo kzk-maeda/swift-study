@@ -204,15 +204,18 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLq-cj-jzY">
-                                <rect key="frame" x="20" y="809" width="311" height="34"/>
+                                <rect key="frame" x="20" y="809" width="327" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0M-8j-1YW">
-                                <rect key="frame" x="344" y="810" width="36" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0M-8j-1YW">
+                                <rect key="frame" x="339" y="792" width="75" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Send"/>
+                                <state key="normal" title="Send" image="send"/>
+                                <connections>
+                                    <action selector="sendAction:" destination="38g-d0-mVp" eventType="touchUpInside" id="uBn-sg-yj5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -221,6 +224,7 @@
                     <navigationItem key="navigationItem" id="mIL-P8-jPL"/>
                     <connections>
                         <outlet property="messageTextField" destination="gLq-cj-jzY" id="te4-iq-J9a"/>
+                        <outlet property="sendButton" destination="E0M-8j-1YW" id="WnZ-15-JBb"/>
                         <outlet property="tableView" destination="UQ9-wa-ent" id="GHS-as-dT8"/>
                     </connections>
                 </viewController>
@@ -233,6 +237,7 @@
         <image name="chatLoginBG" width="1280" height="1920"/>
         <image name="loginBG" width="1475" height="1920"/>
         <image name="register" width="1281" height="1920"/>
+        <image name="send" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Lfi-Mn-TNQ"/>
