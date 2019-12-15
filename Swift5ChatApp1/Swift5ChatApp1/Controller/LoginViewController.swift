@@ -1,8 +1,8 @@
 //
-//  RegisterViewController.swift
+//  LoginViewController.swift
 //  Swift5ChatApp1
 //
-//  Created by Kazuki Maeda on 2019/12/13.
+//  Created by Kazuki Maeda on 2019/12/15.
 //  Copyright © 2019 Kazuki Maeda. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import Lottie
 
-class RegisterViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -19,25 +19,18 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
     }
     
-
-    @IBAction func registerNewUser(_ sender: Any) {
-        
-        // Start Animation
+    @IBAction func login(_ sender: Any) {
         startAnimation()
-        
-        // 新規登録
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil {
                 print(error as Any)
             } else {
-                print("User creation is succeeded")
-                // Stop Animation
+                print("login succeeded")
                 self.stopAnimation()
-                
-                // go to chat view
                 self.performSegue(withIdentifier: "chat", sender: nil)
             }
         }
@@ -57,4 +50,5 @@ class RegisterViewController: UIViewController {
     func stopAnimation() {
         animationView.removeFromSuperview()
     }
+
 }
