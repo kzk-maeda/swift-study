@@ -1,0 +1,28 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Swift5FirebaseApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Swift5FirebaseApp
+      pod 'Firebase'
+      pod 'Firebase/Database'
+      pod 'SVProgressHUD'
+      pod 'Firebase/Messaging'
+      pod 'SDWebImage'
+      pod 'Firebase/Core'
+      pod 'Firebase/Storage'
+      pod 'Firebase/Auth'
+
+  target 'Swift5FirebaseAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Swift5FirebaseAppUITests' do
+    # Pods for testing
+
+  end
+
+end
